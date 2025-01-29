@@ -5,7 +5,7 @@ import java.util.Scanner;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     static ArrayList<String> toDo= new ArrayList<String>();
-    Scanner sc=new Scanner(System.in);
+
     public static void add(String task){
         toDo.add(task);
     }
@@ -16,13 +16,13 @@ public class Main {
         System.out.println(toDo.toString());
     }
     public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
         while(true) {
             System.out.println("*******************TO DO LIST**********************");
             System.out.println("Select an operation you would like to perform");
             System.out.println("a.Add\nb.remove\nc.display\nd.exit");
             int num;
             String task;
-            Scanner sc = new Scanner(System.in);
             String choice = sc.nextLine();
 
             switch (choice) {
