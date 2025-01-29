@@ -1,15 +1,50 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
+    static ArrayList<String> toDo= new ArrayList<String>();
+    Scanner sc=new Scanner(System.in);
+    public static void add(String task){
+        toDo.add(task);
+    }
+    public static void remove(int num){
+        toDo.remove(num);
+    }
+    public static void display(){
+        System.out.println(toDo.toString());
+    }
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.println("Hello and welcome!");
+        while(true) {
+            System.out.println("*******************TO DO LIST**********************");
+            System.out.println("Select an operation you would like to perform");
+            System.out.println("a.Add\nb.remove\nc.display\nd.exit");
+            int num;
+            String task;
+            Scanner sc = new Scanner(System.in);
+            String choice = sc.nextLine();
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = helloo" + i);
+            switch (choice) {
+                case "a":
+                    System.out.println("write the task you would like to add:");
+                    task = sc.nextLine();
+                    add(task);
+                    break;
+                case "b":
+                    System.out.println("what numbered task would you like to remove");
+                    num = sc.nextInt();
+                    remove(num);
+                    break;
+                case "c":
+                    display();
+                    break;
+                case "d":return;
+                default:
+                    System.out.println("invalid choice");
+                    break;
+            }
+        }
+
         }
     }
-}
